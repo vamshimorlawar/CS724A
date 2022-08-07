@@ -31,3 +31,4 @@ print(
     '\nSatellite 4 - ', time_u_4 , 's', 
     '\nSatellite 5 - ', time_u_5 , 's'
 )
+# Time taken by signal to reach the user device is almost in micro-seconds
