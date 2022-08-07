@@ -32,3 +32,27 @@ print(
     '\nSatellite 5 - ', time_u_5 , 's'
 )
 # Time taken by signal to reach the user device is almost in micro-seconds
+
+
+A = np.array([
+    [2*(satellite_2_loc[0] - satellite_1_loc[0]), 2*(satellite_2_loc[1] - satellite_1_loc[1]), 2*(satellite_2_loc[2] - satellite_1_loc[2])],
+    [2*(satellite_3_loc[0] - satellite_2_loc[0]), 2*(satellite_3_loc[1] - satellite_2_loc[1]), 2*(satellite_3_loc[2] - satellite_2_loc[2])],
+    [2*(satellite_4_loc[0] - satellite_3_loc[0]), 2*(satellite_4_loc[1] - satellite_3_loc[1]), 2*(satellite_4_loc[2] - satellite_3_loc[2])]
+])
+
+b = np.array([
+    [(distance_u_1**2 - distance_u_2**2) - (satellite_1_loc[0]**2 - satellite_2_loc[0]**2) - (satellite_1_loc[1]**2 - satellite_2_loc[1]**2) - (satellite_1_loc[2]**2 - satellite_2_loc[2]**2)],
+    [(distance_u_2**2 - distance_u_3**2) - (satellite_2_loc[0]**2 - satellite_3_loc[0]**2) - (satellite_2_loc[1]**2 - satellite_3_loc[1]**2) - (satellite_2_loc[2]**2 - satellite_3_loc[2]**2)],
+    [(distance_u_3**2 - distance_u_4**2) - (satellite_3_loc[0]**2 - satellite_4_loc[0]**2) - (satellite_3_loc[1]**2 - satellite_4_loc[1]**2) - (satellite_3_loc[2]**2 - satellite_4_loc[2]**2)]
+])
+
+user_loc_calculated = np.dot(np.linalg.inv(A), b)
+
+print(
+    '\n(b) Use the satellite locations and the times to find out the location of the user. Check whether it is coming exactly as (100,100,100)?', 
+    '\nx -', user_loc_calculated[0][0], 
+    '\ny -', user_loc_calculated[1][0], 
+    '\nz -', user_loc_calculated[2][0]
+)
+#Using the times calculated in (a) and the satellite locations we get the user location very close to the considered location
+
