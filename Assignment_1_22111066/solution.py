@@ -31,6 +31,7 @@ print(
     '\nSatellite 4 - ', time_u_4 , 's', 
     '\nSatellite 5 - ', time_u_5 , 's'
 )
+
 # Time taken by signal to reach the user device is almost in micro-seconds
 
 
@@ -54,6 +55,7 @@ print(
     '\ny -', user_loc_calculated[1][0], 
     '\nz -', user_loc_calculated[2][0]
 )
+
 #Using the times calculated in (a) and the satellite locations we get the user location very close to the considered location
 
 
@@ -88,7 +90,9 @@ print('\n(c) Check how much location inaccuracy it showing up?\ntime error - ', 
 #the distance inaccuracy is too high when the time error is high
 
 distance_error_list = []
-time_error_list = [pow(10, -9), pow(10, -6), pow(10, -3), 1]
+# time_error_list = [pow(10, -9), pow(10, -6), pow(10, -3), 1]
+time_error_list = np.random.rand(100)
+
 for time_error in time_error_list:
     distance_error_list.append(distanceError(time_error))
 
