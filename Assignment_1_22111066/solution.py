@@ -108,4 +108,4 @@ plt.ylabel('Localization Errors in Meters')
 plt.plot(time_error_list, distance_error_list)
 plt.show()
 
-#the plot of the time errors and distance error is linear and localisation error increases with increasing time error
+#the plot of the time error and localisation error plot increases with increasing time error
