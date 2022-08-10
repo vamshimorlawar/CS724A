@@ -47,7 +47,10 @@ b = np.array([
     [(distance_u_3**2 - distance_u_4**2) - (satellite_3_loc[0]**2 - satellite_4_loc[0]**2) - (satellite_3_loc[1]**2 - satellite_4_loc[1]**2) - (satellite_3_loc[2]**2 - satellite_4_loc[2]**2)]
 ])
 
-user_loc_calculated = np.dot(np.linalg.inv(A), b)
+x1 = np.linalg.inv((np.dot(A.transpose(), A))) 
+x2 = np.dot(A.transpose(), b)
+
+user_loc_calculated = np.dot(x1, x2)
 
 print(
     '\n(b) Use the satellite locations and the times to find out the location of the user. Check whether it is coming exactly as (100,100,100)?', 
@@ -78,7 +81,10 @@ def distanceError(rand_time_error):
         [(distance_3**2 - distance_4**2) - (satellite_3_loc[0]**2 - satellite_4_loc[0]**2) - (satellite_3_loc[1]**2 - satellite_4_loc[1]**2) - (satellite_3_loc[2]**2 - satellite_4_loc[2]**2)]
     ])
 
-    user_loc_calculated = np.dot(np.linalg.inv(A), b)
+    x1 = np.linalg.inv((np.dot(A.transpose(), A))) 
+    x2 = np.dot(A.transpose(), b)
+    user_loc_calculated = np.dot(x1, x2)
+
     new_user_loc_calculated = np.array([user_loc_calculated[0][0], user_loc_calculated[1][0], user_loc_calculated[2][0]])
     distance_error = abs(np.linalg.norm(new_user_loc_calculated - user_loc))
     return distance_error
@@ -86,7 +92,6 @@ def distanceError(rand_time_error):
 rand_time_error = np.random.random()
 distance_error = distanceError(rand_time_error)
 print('\n(c) Check how much location inaccuracy it showing up?\ntime error - ', rand_time_error, 's, location inaccuracy - ', distance_error)
-
 #the distance inaccuracy is too high when the time error is high
 
 distance_error_list = []
