@@ -107,8 +107,8 @@ print('\n(d) Take the average localization errors = ', average_localization_erro
 
 plt.figure(num=0, dpi=120)
 plt.title('(d) timing errors vs localization error')
-plt.xlabel('Time Errors in Seconds')
-plt.ylabel('Localization Errors in Meters')
+plt.xlabel('Time Errors')
+plt.ylabel('Localization Errors')
 
 plt.plot(time_error_list, distance_error_list)
 plt.show()
