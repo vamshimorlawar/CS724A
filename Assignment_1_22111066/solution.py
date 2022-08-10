@@ -4,11 +4,11 @@ import matplotlib.pyplot as plt
 speed_of_light = 3 * pow(10, 8)
 user_loc = np.array([100, 100, 100])
 
-satellite_1_loc = np.array([120, 220, 9900])
+satellite_1_loc = np.array([120, 276, 9900])
 satellite_2_loc = np.array([20, 320, 9700])
-satellite_3_loc = np.array([50, 160, 10870])
+satellite_3_loc = np.array([50, 162, 10870])
 satellite_4_loc = np.array([90, 20, 10230])
-satellite_5_loc = np.array([160, 520, 10040])
+satellite_5_loc = np.array([160, 127, 10040])
 
 distance_u_1 = abs(np.linalg.norm(satellite_1_loc - user_loc))
 distance_u_2 = abs(np.linalg.norm(satellite_2_loc - user_loc))
