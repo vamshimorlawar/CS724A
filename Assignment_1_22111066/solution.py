@@ -92,7 +92,7 @@ def distanceError(rand_time_error):
 rand_time_error = np.random.random()
 distance_error = distanceError(rand_time_error)
 print('\n(c) Check how much location inaccuracy it showing up?\ntime error - ', rand_time_error, 's, location inaccuracy - ', distance_error)
-#the distance inaccuracy is too high when the time error is high
+#the distance inaccuracy is too high when the time error is high like in seconds instead of ns, micro seconds
 
 distance_error_list = []
 # time_error_list = [pow(10, -9), pow(10, -6), pow(10, -3), 1]
