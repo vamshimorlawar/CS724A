@@ -50,9 +50,9 @@ b = np.array([
 ])
 
 x1 = np.linalg.inv((np.dot(A.transpose(), A))) 
-x2 = np.dot(A.transpose(), b)
+x2 = np.dot(x1, A.transpose())
 
-user_loc_calculated = np.dot(x1, x2)
+user_loc_calculated = np.dot(x2, b)
 
 print(
     '\n(b) Use the satellite locations and the times to find out the location of the user. Check whether it is coming exactly as (100,100,100)?', 
@@ -86,8 +86,8 @@ def localizationError(rand_time_error):
     ])
 
     x1 = np.linalg.inv((np.dot(A.transpose(), A))) 
-    x2 = np.dot(A.transpose(), b)
-    user_loc_calculated = np.dot(x1, x2)
+    x2 = np.dot(x1, A.transpose())
+    user_loc_calculated = np.dot(x2, b)
 
     new_user_loc_calculated = np.array([user_loc_calculated[0][0], user_loc_calculated[1][0], user_loc_calculated[2][0]])
     localization_error = abs(np.linalg.norm(new_user_loc_calculated - user_loc))
