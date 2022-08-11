@@ -65,11 +65,11 @@ print(
 
 
 def localizationError(rand_time_error):
-    distance_1 = distance_u_1 + rand_time_error * speed_of_light
-    distance_2 = distance_u_2 + rand_time_error * speed_of_light
-    distance_3 = distance_u_3 + rand_time_error * speed_of_light
-    distance_4 = distance_u_4 + rand_time_error * speed_of_light
-    distance_5 = distance_u_5 + rand_time_error * speed_of_light #fifth satellite data is not being used as we ourself are considering some random time error
+    distance_1 = (time_u_1 + rand_time_error) * speed_of_light
+    distance_2 = (time_u_2 + rand_time_error) * speed_of_light
+    distance_3 = (time_u_3 + rand_time_error) * speed_of_light
+    distance_4 = (time_u_4 + rand_time_error) * speed_of_light
+    distance_5 = (time_u_5 + rand_time_error) * speed_of_light 
 
     A = np.array([
         [2*(satellite_2_loc[0] - satellite_1_loc[0]), 2*(satellite_2_loc[1] - satellite_1_loc[1]), 2*(satellite_2_loc[2] - satellite_1_loc[2])],
