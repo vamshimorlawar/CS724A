@@ -32,9 +32,6 @@ print(
     '\nSatellite 5 - ', time_u_5 , 's'
 )
 
-# Time taken by signal to reach the user device is almost in micro-seconds
-
-
 A = np.array([
     [2*(satellite_2_loc[0] - satellite_1_loc[0]), 2*(satellite_2_loc[1] - satellite_1_loc[1]), 2*(satellite_2_loc[2] - satellite_1_loc[2])],
     [2*(satellite_3_loc[0] - satellite_2_loc[0]), 2*(satellite_3_loc[1] - satellite_2_loc[1]), 2*(satellite_3_loc[2] - satellite_2_loc[2])],
@@ -49,9 +46,9 @@ b = np.array([
     [(distance_u_4**2 - distance_u_5**2) - (satellite_4_loc[0]**2 - satellite_5_loc[0]**2) - (satellite_4_loc[1]**2 - satellite_5_loc[1]**2) - (satellite_4_loc[2]**2 - satellite_5_loc[2]**2)]
 ])
 
+#b
 x1 = np.linalg.inv((np.dot(A.transpose(), A))) 
 x2 = np.dot(x1, A.transpose())
-
 user_loc_calculated = np.dot(x2, b)
 
 print(
@@ -60,9 +57,6 @@ print(
     '\ny -', user_loc_calculated[1][0], 
     '\nz -', user_loc_calculated[2][0]
 )
-
-#Using the times calculated in (a) and the satellite locations we get the user location very close to the considered location
-
 
 def localizationError(rand_time_error):
     distance_1 = (time_u_1 + rand_time_error) * speed_of_light
@@ -91,16 +85,16 @@ def localizationError(rand_time_error):
 
     new_user_loc_calculated = np.array([user_loc_calculated[0][0], user_loc_calculated[1][0], user_loc_calculated[2][0]])
     localization_error = abs(np.linalg.norm(new_user_loc_calculated - user_loc))
+    
     return localization_error
 
+#c
 rand_time_error = np.random.uniform(pow(10,-9), 99*pow(10,-9))
 localization_error = localizationError(rand_time_error)
 print('\n(c) Check how much location inaccuracy it showing up?\ntime error - ', rand_time_error, 's, location inaccuracy - ', localization_error)
-#the distance inaccuracy is too high when the time error is high like in seconds instead of ns, micro seconds
 
 localization_error_list = []
 time_error_list = []
-# time_error_list = [pow(10, -9), pow(10, -6), pow(10, -3), 1]
 for i in range(100):
     time_error_list.append(np.random.uniform(pow(10,-9), 99*pow(10,-9)))
 
@@ -119,5 +113,3 @@ plt.ylabel('Localization Errors in (Meters)')
 plt.plot(time_error_list, localization_error_list)
 plt.scatter(time_error_list, localization_error_list, c='purple')
 plt.show()
-
-#the plot of the time error and localisation error plot increases with increasing time error
