@@ -10,11 +10,11 @@ satellite_3_loc = np.array([50, 162, 10870])
 satellite_4_loc = np.array([90, 20, 10230])
 satellite_5_loc = np.array([160, 127, 10040])
 
-distance_u_1 = abs(np.linalg.norm(satellite_1_loc - user_loc))
-distance_u_2 = abs(np.linalg.norm(satellite_2_loc - user_loc))
-distance_u_3 = abs(np.linalg.norm(satellite_3_loc - user_loc))
-distance_u_4 = abs(np.linalg.norm(satellite_4_loc - user_loc))
-distance_u_5 = abs(np.linalg.norm(satellite_5_loc - user_loc))
+distance_u_1 = (np.linalg.norm(satellite_1_loc - user_loc))
+distance_u_2 = (np.linalg.norm(satellite_2_loc - user_loc))
+distance_u_3 = (np.linalg.norm(satellite_3_loc - user_loc))
+distance_u_4 = (np.linalg.norm(satellite_4_loc - user_loc))
+distance_u_5 = (np.linalg.norm(satellite_5_loc - user_loc))
 
 time_u_1 = distance_u_1 / speed_of_light
 time_u_2 = distance_u_2 / speed_of_light
@@ -84,7 +84,7 @@ def localizationError(rand_time_error):
     user_loc_calculated = np.dot(x2, b)
 
     new_user_loc_calculated = np.array([user_loc_calculated[0][0], user_loc_calculated[1][0], user_loc_calculated[2][0]])
-    localization_error = abs(np.linalg.norm(new_user_loc_calculated - user_loc))
+    localization_error = (np.linalg.norm(new_user_loc_calculated - user_loc))
     
     return localization_error
 
