@@ -41,14 +41,13 @@ print("(e) Variance of these RSSI samples w.r.t the best fit line", variance)
 
 d0 = 1
 prd0 = bestFit[0] * np.log10(d0) + bestFit[1]
-print("prd0", prd0)
 
 def estimateDistance(prd):
     estimatedDistance = pow(10, (prd - prd0)/slopeBestFit)
     return estimatedDistance
 
 prd = -89
-print('Estimated distance', estimateDistance(prd))
+print('Estimated distance for rssi of', prd, 'is', estimateDistance(prd))
 
 prdList = [-51, -71, -82, -87, -89]
 actualDistance = [1, 16, 52, 93, 117]
