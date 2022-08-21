@@ -16,7 +16,7 @@ distances = np.log10(distances)
 distances = np.repeat(distances, 5)
 
 #c
-plt.xlabel('Distances (log scale)')
+plt.xlabel('Distances (log scale) Meters')
 plt.ylabel('RSSI Value dBm')
 plt.scatter(distances, rssi)
 
@@ -50,13 +50,16 @@ def estimateDistance(prd):
 prd = -89
 print('Estimated distance', estimateDistance(prd))
 
-prdList = [-51, -71, -89]
-actualDistance = [1, 16, 117]
+prdList = [-51, -71, -82, -87, -89]
+actualDistance = [1, 16, 52, 93, 117]
+estimateDistances = []
 errorInDistance = []
 
 for i in range(len(prdList)):
     ed = estimateDistance(prdList[i])
+    estimateDistances.append(ed)
     error = ed - actualDistance[i] 
     errorInDistance.append(error)
 
+print(estimateDistances)
 print("Average error", np.average(errorInDistance))
