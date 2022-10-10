@@ -36,6 +36,8 @@ variance = 0
 for i in range(len(rssi)):
     variance += (slopeBestFit * distances[i] + bestFit[1] - rssi[i]) ** 2
 
+variance /= len(rssi)
+
 print("(e) Variance of these RSSI samples w.r.t the best fit line", variance)
 
 
